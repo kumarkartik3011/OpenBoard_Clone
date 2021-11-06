@@ -5,11 +5,16 @@ canvas.height = window.innerHeight;
 let pencilColor = document.querySelectorAll(".pencil-color-cont");
 let pencilWidthElem = document.querySelector(".pencil-width");
 let eraserWidthElem = document.querySelector(".eraser-width");
+let download = document.querySelector(".download");
+
 
 let penColor = "red";
 let eraserColor = "white";
 let penWidth = pencilWidthElem.value;
 let eraserWidth = eraserWidthElem.value; 
+
+let undoRedoTracker = []; //data
+let track = 0; // represent which action to be performed from tracker array
 
 let mouseDown = false;
 let tool = canvas.getContext("2d"); // perfoms like an api to draw graphics
@@ -38,6 +43,9 @@ canvas.addEventListener("mousemove", (e) => {
 })
 canvas.addEventListener("mouseup", (e) => {
 mouseDown = false;
+let url = canvas.toDataURL();
+undoRedoTracker.push(url);
+track = undoRedoTracker.length-1;
 })
 function beginPath(strokeObj)
 {
@@ -78,4 +86,11 @@ eraser.addEventListener("click" , (e) => {
          tool.strokeStyle = penColor;
          tool.lineWidth = penWidth;
     }
+})
+download.addEventListener("click", (e) => {
+    let url = canvas.toDataURL(); //sets a url
+    let a = document.createElement("a");
+    a.href = url; //fetches that url
+    a.download = "board.jpg";
+    a.click();
 })
