@@ -1,4 +1,4 @@
-# Openboard Project (Clone) [click here](https://clone-openboard.herokuapp.com/)
+# Openboard Project (Clone) [click here](https://openboard-paridhi.herokuapp.com/)
 
 ### Project Desciption:
 The project comprises of basic openboard functionalities such as, writing, erasing, downloading the canvas, adding notes (with minimising it, closing it, dragging it around on the page), uploading the image (features same as of notes), undo and redo actions. <br>
@@ -36,5 +36,3 @@ node app.js
 ```
 Now open the browser and type `localhost:3000`.
 
-### Reference: 
-[click here](https://www.youtube.com/c/Pepcoding)
